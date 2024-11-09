@@ -1,0 +1,7 @@
+stm32f4xx_hal_rcc_ex.c:1931:19:HAL_RCCEx_PeriphCLKConfig	14
+stm32f4xx_hal_rcc_ex.c:2041:6:HAL_RCCEx_GetPeriphCLKConfig	2
+stm32f4xx_hal_rcc_ex.c:2075:10:HAL_RCCEx_GetPeriphCLKFreq	8
+stm32f4xx_hal_rcc_ex.c:2766:6:HAL_RCCEx_SelectLSEMode	2
+stm32f4xx_hal_rcc_ex.c:3143:19:HAL_RCC_DeInit	10
+stm32f4xx_hal_rcc_ex.c:3333:19:HAL_RCC_OscConfig	62
+stm32f4xx_hal_rcc_ex.c:3703:6:HAL_RCC_GetOscConfig	8
