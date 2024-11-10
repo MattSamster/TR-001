@@ -103,15 +103,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    MPU6050_update_data();
-    printf("accel data: \r\n");
-    printf("Ax = %4.2f \r\n", mpu_data.Ax);
-    printf("Ay = %4.2f \r\n", mpu_data.Ay);
-    printf("Az = %4.2f \r\n", mpu_data.Az);
-    printf("Gx = %4.2f \r\n", mpu_data.Gx);
-    printf("Gy = %4.2f \r\n", mpu_data.Gy);
-    printf("Gz = %4.2f \r\n", mpu_data.Gz);
-    HAL_Delay(100);
+    #ifdef DEBUG
+      MPU6050_update_data(&mpu_data);
+      printf("accel data: \r\n");
+      printf("Ax = %4.2f \r\n", mpu_data.Ax);
+      printf("Ay = %4.2f \r\n", mpu_data.Ay);
+      printf("Az = %4.2f \r\n", mpu_data.Az);
+      printf("Gx = %4.2f \r\n", mpu_data.Gx);
+      printf("Gy = %4.2f \r\n", mpu_data.Gy);
+      printf("Gz = %4.2f \r\n", mpu_data.Gz);
+      HAL_Delay(100);
+    #endif
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

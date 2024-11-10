@@ -1,4 +1,4 @@
-mpu6050.c:37:6:MPU6050_Init	2
-mpu6050.c:69:6:MPU6050_Read_Accel	1
-mpu6050.c:94:6:MPU6050_Read_Gyro	1
-mpu6050.c:119:6:MPU6050_update_data	1
+mpu6050.c:34:6:MPU6050_Init	2
+mpu6050.c:66:6:MPU6050_Read_Accel	1
+mpu6050.c:86:6:MPU6050_Read_Gyro	1
+mpu6050.c:102:6:MPU6050_update_data	1

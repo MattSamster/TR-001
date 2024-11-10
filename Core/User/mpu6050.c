@@ -27,9 +27,6 @@
 #define PWR_MGMT_1_REG 0x6B
 #define WHO_AM_I_REG 0x75
 
-extern mpu6050_data mpu_data;
-mpu6050_data mpu_data;
-
 /**
  * @brief 
  * 
@@ -66,59 +63,43 @@ void MPU6050_Init (void)
  * @brief 
  * 
  */
-void MPU6050_Read_Accel (void)
+void MPU6050_Read_Accel (mpu6050_data *mpu_data)
 {
 	uint8_t Rec_Data[6];
 
 	// Read 6 BYTES of data starting from ACCEL_XOUT_H (0x3B) register
 	HAL_I2C_Mem_Read(&hi2c1, MPU6050_ADDR, 0x3B, 1, Rec_Data, 6, 1000);
 
-	mpu_data.Accel_X_RAW = (uint16_t)(Rec_Data[0] << 8 | Rec_Data [1]);
-	mpu_data.Accel_Y_RAW = (uint16_t)(Rec_Data[2] << 8 | Rec_Data [3]);
-	mpu_data.Accel_Z_RAW = (uint16_t)(Rec_Data[4] << 8 | Rec_Data [5]);
+	mpu_data->Accel_X_RAW = (uint16_t)(Rec_Data[0] << 8 | Rec_Data [1]);
+	mpu_data->Accel_Y_RAW = (uint16_t)(Rec_Data[2] << 8 | Rec_Data [3]);
+	mpu_data->Accel_Z_RAW = (uint16_t)(Rec_Data[4] << 8 | Rec_Data [5]);
 
-	/*** convert the RAW values into acceleration in 'g'
-	     we have to divide according to the Full scale value set in FS_SEL
-	     I have configured FS_SEL = 0. So I am dividing by 16384.0
-	     for more details check ACCEL_CONFIG Register              ****/
-
-	mpu_data.Ax = (float)mpu_data.Accel_X_RAW/16384.0;
-	mpu_data.Ay = (float)mpu_data.Accel_Y_RAW/16384.0;
-	mpu_data.Az = (float)mpu_data.Accel_Z_RAW/16384.0;
+	mpu_data->Ax = (float)mpu_data->Accel_X_RAW/16384.0;
+	mpu_data->Ay = (float)mpu_data->Accel_Y_RAW/16384.0;
+	mpu_data->Az = (float)mpu_data->Accel_Z_RAW/16384.0;
 }
 
 /**
  * @brief 
  * 
  */
-void MPU6050_Read_Gyro (void)
+void MPU6050_Read_Gyro (mpu6050_data *mpu_data)
 {
 	uint8_t Rec_Data[6];
 
 	// Read 6 BYTES of data starting from GYRO_XOUT_H register
 	HAL_I2C_Mem_Read (&hi2c1, MPU6050_ADDR, 0x43, 1, Rec_Data, 6, 1000);
 
-	mpu_data.Gyro_X_RAW = (uint16_t)(Rec_Data[0] << 8 | Rec_Data [1]);
-	mpu_data.Gyro_Y_RAW = (uint16_t)(Rec_Data[2] << 8 | Rec_Data [3]);
-	mpu_data.Gyro_Z_RAW = (uint16_t)(Rec_Data[4] << 8 | Rec_Data [5]);
+	mpu_data->Gyro_X_RAW = (uint16_t)(Rec_Data[0] << 8 | Rec_Data [1]);
+	mpu_data->Gyro_Y_RAW = (uint16_t)(Rec_Data[2] << 8 | Rec_Data [3]);
+	mpu_data->Gyro_Z_RAW = (uint16_t)(Rec_Data[4] << 8 | Rec_Data [5]);
 
-	/*** convert the RAW values into dps (ｰ/s)
-	     we have to divide according to the Full scale value set in FS_SEL
-	     I have configured FS_SEL = 0. So I am dividing by 131.0
-	     for more details check GYRO_CONFIG Register              ****/
-
-	mpu_data.Gx = (float)mpu_data.Gyro_X_RAW/131.0;
-	mpu_data.Gy = (float)mpu_data.Gyro_Y_RAW/131.0;
-	mpu_data.Gz = (float)mpu_data.Gyro_Z_RAW/131.0;
+	mpu_data->Gx = (float)mpu_data->Gyro_X_RAW/131.0;
+	mpu_data->Gy = (float)mpu_data->Gyro_Y_RAW/131.0;
+	mpu_data->Gz = (float)mpu_data->Gyro_Z_RAW/131.0;
 }
 
-/**
- * @brief 
- * 
- */
-void MPU6050_update_data(void){
-
-    MPU6050_Read_Accel();
-    MPU6050_Read_Gyro();
-
+void MPU6050_update_data(mpu6050_data *mpu_data){
+      MPU6050_Read_Accel(mpu_data);
+      MPU6050_Read_Gyro(mpu_data);
 }

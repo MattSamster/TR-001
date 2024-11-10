@@ -12,12 +12,6 @@
 #ifndef __MPU6050_H
 #define __MPU6050_H
 
-void MPU6050_Init (void);
-void MPU6050_Read_Accel (void);
-void MPU6050_Read_Gyro (void);
-void MPU6050_update_data(void);
-
-
 typedef struct mpu6050_data
 {
     uint16_t Accel_X_RAW;
@@ -36,5 +30,11 @@ typedef struct mpu6050_data
     float Gz;
 
 }mpu6050_data;
+
+void MPU6050_Init (void);
+void MPU6050_Read_Accel (mpu6050_data *mpu_data);
+void MPU6050_Read_Gyro (mpu6050_data *mpu_data);
+void MPU6050_update_data (mpu6050_data *mpu_data);
+
 
 #endif
