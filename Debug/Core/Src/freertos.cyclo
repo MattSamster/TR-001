@@ -1,4 +1,6 @@
-freertos.c:74:6:vApplicationGetIdleTaskMemory	1
-freertos.c:88:6:MX_FREERTOS_Init	1
-freertos.c:131:6:StartDefaultTask	1
-freertos.c:151:6:print_status	1
+../Core/Src/freertos.c:77:6:vApplicationGetIdleTaskMemory	1
+../Core/Src/freertos.c:91:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:142:6:mpu	1
+../Core/Src/freertos.c:161:6:print_to_usb	1
+../Core/Src/freertos.c:185:6:hip_motor	1
+../Core/Src/freertos.c:203:6:ankle_motor	1

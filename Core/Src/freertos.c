@@ -49,18 +49,21 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 mpu6050_data mpu_data;
-
 /* USER CODE END Variables */
 osThreadId mpu_taskHandle;
 osThreadId printf_taskHandle;
+osThreadId hip_motor_taskHandle;
+osThreadId ankle_motor_tasHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void print_status(void const * argument);
+void mpu(void const * argument);
+void print_to_usb(void const * argument);
+void hip_motor(void const * argument);
+void ankle_motor(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -108,12 +111,20 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of mpu_task */
-  osThreadDef(mpu_task, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(mpu_task, mpu, osPriorityNormal, 0, 128);
   mpu_taskHandle = osThreadCreate(osThread(mpu_task), NULL);
 
   /* definition and creation of printf_task */
-  osThreadDef(printf_task, print_status, osPriorityBelowNormal, 0, 128);
+  osThreadDef(printf_task, print_to_usb, osPriorityLow, 0, 128);
   printf_taskHandle = osThreadCreate(osThread(printf_task), NULL);
+
+  /* definition and creation of hip_motor_task */
+  osThreadDef(hip_motor_task, hip_motor, osPriorityNormal, 0, 128);
+  hip_motor_taskHandle = osThreadCreate(osThread(hip_motor_task), NULL);
+
+  /* definition and creation of ankle_motor_tas */
+  osThreadDef(ankle_motor_tas, ankle_motor, osPriorityNormal, 0, 128);
+  ankle_motor_tasHandle = osThreadCreate(osThread(ankle_motor_tas), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -121,49 +132,83 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_mpu */
 /**
   * @brief  Function implementing the mpu_task thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+/* USER CODE END Header_mpu */
+void mpu(void const * argument)
 {
-  /* USER CODE BEGIN StartDefaultTask */
+  /* USER CODE BEGIN mpu */
   /* Infinite loop */
   for(;;)
   {
-    // printf("mpu_task\r\n");
+    printf("mpu_task \r\n");
     MPU6050_update_data(&mpu_data);
-    osDelay(500);
   }
-  /* USER CODE END StartDefaultTask */
+  /* USER CODE END mpu */
 }
 
-/* USER CODE BEGIN Header_print_status */
+/* USER CODE BEGIN Header_print_to_usb */
 /**
-* @brief Function implementing the printfs thread.
+* @brief Function implementing the printf_task thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_print_status */
-void print_status(void const * argument)
+/* USER CODE END Header_print_to_usb */
+void print_to_usb(void const * argument)
 {
-  /* USER CODE BEGIN print_status */
+  /* USER CODE BEGIN print_to_usb */
   /* Infinite loop */
   for(;;)
   {
-    printf("accel data: \r\n");
-    printf("Ax = %4.2f \r\n", mpu_data.Ax);
-    printf("Ay = %4.2f \r\n", mpu_data.Ay);
-    printf("Az = %4.2f \r\n", mpu_data.Az);
-    printf("Gx = %4.2f \r\n", mpu_data.Gx);
-    printf("Gy = %4.2f \r\n", mpu_data.Gy);
-    printf("Gz = %4.2f \r\n", mpu_data.Gz);
-    osDelay(1000);
+//    printf("accel data: \r\n");
+//    printf("Ax = %4.2f \r\n", mpu_data.Ax);
+//    printf("Ay = %4.2f \r\n", mpu_data.Ay);
+//    printf("Az = %4.2f \r\n", mpu_data.Az);
+//    printf("Gx = %4.2f \r\n", mpu_data.Gx);
+//    printf("Gy = %4.2f \r\n", mpu_data.Gy);
+//    printf("Gz = %4.2f \r\n", mpu_data.Gz);
   }
-  /* USER CODE END print_status */
+  /* USER CODE END print_to_usb */
+}
+
+/* USER CODE BEGIN Header_hip_motor */
+/**
+* @brief Function implementing the hip_motor_task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_hip_motor */
+void hip_motor(void const * argument)
+{
+  /* USER CODE BEGIN hip_motor */
+  /* Infinite loop */
+  for(;;)
+  {
+    printf("hip motor task \r\n");
+  }
+  /* USER CODE END hip_motor */
+}
+
+/* USER CODE BEGIN Header_ankle_motor */
+/**
+* @brief Function implementing the ankle_motor_tas thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_ankle_motor */
+void ankle_motor(void const * argument)
+{
+  /* USER CODE BEGIN ankle_motor */
+  /* Infinite loop */
+  for(;;)
+  {
+    printf("ankle motor task \r\n");
+  }
+  /* USER CODE END ankle_motor */
 }
 
 /* Private application code --------------------------------------------------*/

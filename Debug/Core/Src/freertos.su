@@ -1,4 +1,6 @@
-../Core/Src/freertos.c:74:6:vApplicationGetIdleTaskMemory	24	static
-../Core/Src/freertos.c:88:6:MX_FREERTOS_Init	72	static
-../Core/Src/freertos.c:131:6:StartDefaultTask	16	static
-../Core/Src/freertos.c:151:6:print_status	16	static
+../Core/Src/freertos.c:77:6:vApplicationGetIdleTaskMemory	24	static
+../Core/Src/freertos.c:91:6:MX_FREERTOS_Init	128	static
+../Core/Src/freertos.c:142:6:mpu	16	static
+../Core/Src/freertos.c:161:6:print_to_usb	16	static
+../Core/Src/freertos.c:185:6:hip_motor	16	static
+../Core/Src/freertos.c:203:6:ankle_motor	16	static
