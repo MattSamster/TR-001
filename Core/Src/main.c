@@ -30,8 +30,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "printf_redir.h"
-#include "mpu6050.h"
 
 /* USER CODE END Includes */
 
@@ -104,6 +102,7 @@ int main(void)
   MX_I2C1_Init();
   MX_UART4_Init();
   MX_UART5_Init();
+  MX_FDCAN2_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

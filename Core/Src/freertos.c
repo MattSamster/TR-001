@@ -25,7 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "main.h"
+#include <stdio.h>
+#include "printf_redir.h"
 #include "mpu6050.h"
 #include "hip_motors.h"
 #include "ankle_motors.h"

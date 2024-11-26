@@ -1,5 +1,5 @@
 /**
- * @file mpu6050.c
+ * @file mpu6050.h
  * @author Matthew Sam (mathcsam@gmail.com)
  * @brief 
  * @version 0.1
@@ -9,14 +9,13 @@
  * 
  */
 
+#ifndef __MPU6050_H
+#define __MPU6050_H
 
-#include <stdint.h>
-#include "mpu6050.h"
-#include "main.h"
 #include "i2c.h"
-#include "usart.h"
-#include "gpio.h"
+#include <stdint.h>
 
+/** define register values **/
 #define MPU6050_ADDR 0xD0
 #define SMPLRT_DIV_REG 0x19
 #define GYRO_CONFIG_REG 0x1B
@@ -25,7 +24,30 @@
 #define TEMP_OUT_H_REG 0x41
 #define GYRO_XOUT_H_REG 0x43
 #define PWR_MGMT_1_REG 0x6B
-#define WHO_AM_I_REG 0x75
+#define WHO_AM_I_REG 0x751
+
+/**
+ * @brief struct for holding MPU data
+ * 
+ */
+typedef struct mpu6050_data
+{
+    uint16_t Accel_X_RAW;
+    uint16_t Accel_Y_RAW;
+    uint16_t Accel_Z_RAW;
+
+    uint16_t Gyro_X_RAW;
+    uint16_t Gyro_Y_RAW;
+    uint16_t Gyro_Z_RAW;
+
+    float Ax;
+    float Ay;
+    float Az;
+    float Gx;
+    float Gy;
+    float Gz;
+
+}mpu6050_data;
 
 /**
  * @brief 
@@ -103,3 +125,5 @@ void MPU6050_update_data(mpu6050_data *mpu_data){
       MPU6050_Read_Accel(mpu_data);
       MPU6050_Read_Gyro(mpu_data);
 }
+
+#endif

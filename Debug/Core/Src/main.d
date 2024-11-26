@@ -53,9 +53,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Core/Inc/eth.h ../Core/Inc/main.h ../Core/Inc/fdcan.h \
  ../Core/Inc/i2c.h ../Core/Inc/memorymap.h ../Core/Inc/usart.h \
- ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h \
- C:/Users/MATTH/code/TR-001/User/printf_redir.h \
- C:/Users/MATTH/code/TR-001/User/mpu6050.h
+ ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -117,5 +115,3 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/usart.h:
 ../Core/Inc/usb_otg.h:
 ../Core/Inc/gpio.h:
-C:/Users/MATTH/code/TR-001/User/printf_redir.h:
-C:/Users/MATTH/code/TR-001/User/mpu6050.h:

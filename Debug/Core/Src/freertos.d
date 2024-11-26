@@ -51,9 +51,9 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- C:/Users/MATTH/code/TR-001/User/mpu6050.h \
- C:/Users/MATTH/code/TR-001/User/hip_motors.h \
- C:/Users/MATTH/code/TR-001/User/ankle_motors.h
+ ../Core/Inc/printf_redir.h ../Core/Inc/usart.h ../Core/Inc/main.h \
+ ../Core/Inc/mpu6050.h ../Core/Inc/i2c.h ../Core/Inc/hip_motors.h \
+ ../Core/Inc/gpio.h ../Core/Inc/ankle_motors.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -107,6 +107,11 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-C:/Users/MATTH/code/TR-001/User/mpu6050.h:
-C:/Users/MATTH/code/TR-001/User/hip_motors.h:
-C:/Users/MATTH/code/TR-001/User/ankle_motors.h:
+../Core/Inc/printf_redir.h:
+../Core/Inc/usart.h:
+../Core/Inc/main.h:
+../Core/Inc/mpu6050.h:
+../Core/Inc/i2c.h:
+../Core/Inc/hip_motors.h:
+../Core/Inc/gpio.h:
+../Core/Inc/ankle_motors.h:

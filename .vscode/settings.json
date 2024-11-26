@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "usart.h": "c"
+        "usart.h": "c",
+        "gpio.h": "c"
     },
     "stm32-for-vscode.openOCDPath": false,
     "stm32-for-vscode.makePath": false,

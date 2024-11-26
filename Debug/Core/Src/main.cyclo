@@ -1,5 +1,4 @@
-C:/Users/MATTH/code/TR-001/User/printf_redir.h:17:5:__io_putchar	1
-../Core/Src/main.c:75:5:main	1
-../Core/Src/main.c:134:6:SystemClock_Config	4
-../Core/Src/main.c:201:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:218:6:Error_Handler	1
+../Core/Src/main.c:73:5:main	1
+../Core/Src/main.c:133:6:SystemClock_Config	4
+../Core/Src/main.c:200:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:217:6:Error_Handler	1
