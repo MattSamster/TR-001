@@ -5,5 +5,29 @@
     },
     "stm32-for-vscode.openOCDPath": false,
     "stm32-for-vscode.makePath": false,
-    "stm32-for-vscode.armToolchainPath": false
+    "stm32-for-vscode.armToolchainPath": false,
+
+    "workbench.colorCustomizations": {
+      "editor.background": "#000000",        // Black
+      "editor.foreground": "#00CC66",        // Softer green
+      "editorLineNumber.foreground": "#FF6666", // Softer red
+      "editorCursor.foreground": "#FFFF66",  // Softer yellow
+      "activityBar.background": "#000000",   // Black
+      "sideBar.background": "#000000",       // Black
+      "sideBar.foreground": "#00CC66",       // Softer green
+      "titleBar.activeBackground": "#000000", // Black
+      "titleBar.activeForeground": "#00CC66", // Softer green
+      "statusBar.background": "#000000",      // Black
+      "statusBar.foreground": "#00CC66",      // Softer green
+      "editor.selectionBackground": "#FF6666", // Softer red
+      "editor.selectionHighlightBackground": "#FF6666", // Softer red
+      "editor.findMatchHighlightBackground": "#FFFF66", // Softer yellow
+      "editor.wordHighlightBackground": "#FF6666", // Softer red
+      "terminal.foreground": "#00CC66",      // Softer green
+      "terminal.background": "#000000"       // Black
+    },
+    "editor.tokenColorCustomizations": {
+      "comments": "#00CC66" // Softer green for comments
+    }
+      
 }

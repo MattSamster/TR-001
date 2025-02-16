@@ -23,6 +23,7 @@
 #include "fdcan.h"
 #include "i2c.h"
 #include "memorymap.h"
+#include "tim.h"
 #include "usart.h"
 #include "usb_otg.h"
 #include "gpio.h"
@@ -103,6 +104,7 @@ int main(void)
   MX_UART4_Init();
   MX_UART5_Init();
   MX_FDCAN2_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
